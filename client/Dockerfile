@@ -4,8 +4,6 @@ FROM node:alpine
 # Create app directory
 COPY . ./app
 
-
-
 # set the working direction
 WORKDIR /app
 

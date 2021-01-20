@@ -10,6 +10,7 @@ Get the source code:
 On the project run the build script:
 ```./build_script.sh```
 
+Project will be available to run at: ```http://localhost:3000/```
 
 ## Tasks Info
 

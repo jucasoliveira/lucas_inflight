@@ -7,6 +7,7 @@ import TrendingFlat from '@material-ui/icons/TrendingFlat';
 import { Container, CircularProgress, Grid } from '@material-ui/core';
 import moment from 'moment';
 import Chip from '@material-ui/core/Chip';
+import request from '../services/util/request';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const FlightDetail = () => {
   const classes = useStyles();
-  const [data] = useState(null);
+  const [data, setData] = useState(null);
 
   const statusColor = (elm) => {
     switch (elm) {
@@ -61,7 +62,14 @@ export const FlightDetail = () => {
   };
 
   useEffect(() => {
-    const pollDetails = async () => {};
+    const pollDetails = async () => {
+      await request({
+        method: 'GET',
+        route: '/api/flight/all'
+      }).then((res) => {
+        setData(res.data);
+      });
+    };
 
     pollDetails();
   }, []);
