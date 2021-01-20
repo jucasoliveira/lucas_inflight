@@ -2,19 +2,16 @@ import React, { useState, useEffect } from 'react';
 import request from '../services/util/request';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import moment from 'moment';
 import {
   Container,
   FormControl,
   Select,
   MenuItem,
-  InputLabel,
-  FormHelperText,
   CircularProgress,
   Divider,
   Paper,
@@ -22,7 +19,6 @@ import {
 } from '@material-ui/core';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import { XMLNS_1_0 } from 'xmlchars';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -94,7 +90,6 @@ const useStyles = makeStyles((theme) => ({
 export const FlightInfo = () => {
   let { id } = useParams();
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
   const [data, setData] = useState(null);
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState('');
@@ -245,6 +240,7 @@ export const FlightInfo = () => {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line
     !data &&
       pollDetails().then((res) => {
         setData(res.data);

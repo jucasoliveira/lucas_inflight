@@ -12,9 +12,11 @@ RUN ls
 
 # run yarn
 RUN yarn global add ts-node typescript @types/express
+
 RUN yarn
 
+RUN yarn build
 
 EXPOSE 5000
 
-CMD ["yarn", "start:dev"]
+CMD ["yarn", "start"]

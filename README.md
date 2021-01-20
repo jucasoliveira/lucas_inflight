@@ -1,7 +1,17 @@
 # Technical Assessment Inflight Dublin 
 The purpose of the given tasks is not only to gauge your technical ability, but to see how you  think through an engineering solution. We will talk through your results and your logic as part of  your technical interview. The tasks will not make or break your candidacy for the role but serve  as a single data-point among your other excellent qualifications.
 
-## Please complete following tasks
+## How to run the project
+Get the source code:
+```git clone https://github.com/jucasoliveira/lucas_inflight.git && cd lucas_inflight```
+
+On the project run the build script:
+```./build_script.sh```
+
+
+## Tasks Info
+
+### Please complete following tasks
 
 1. Backend Task using NodeJS:
     1. Develop API's to store, retrieve, update & delete Flight Details.
@@ -37,6 +47,7 @@ The view need not be pixel perfect.
 2. Use Mongo Database.
 3. Use Material UI.
 Once you’re done with the above tasks, please create a GIT bundle &  share it with us.
+
 ```git bundle create YOUR_NAME_IFD master```
 
 > Make sure that all your commits are preserved in the bundle with the history.

@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import request from '../services/util/request';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import TrendingFlat from '@material-ui/icons/TrendingFlat';
-import { Container, Button, CircularProgress, Grid } from '@material-ui/core';
+import { Container, CircularProgress, Grid } from '@material-ui/core';
 import moment from 'moment';
 import Chip from '@material-ui/core/Chip';
-import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,10 +48,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const FlightDetail = () => {
-  const [getData, setGetData] = useState(false);
   const classes = useStyles();
-  const [data, setData] = useState(null);
-  const prevData = useRef();
+  const [data] = useState(null);
 
   const statusColor = (elm) => {
     switch (elm) {
@@ -65,14 +61,7 @@ export const FlightDetail = () => {
   };
 
   useEffect(() => {
-    const pollDetails = async () => {
-      const getDetails = request({
-        method: 'GET',
-        route: '/api/flight/all'
-      }).then((res) => {
-        setData(res.data);
-      });
-    };
+    const pollDetails = async () => {};
 
     pollDetails();
   }, []);
