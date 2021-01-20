@@ -1,4 +1,4 @@
-<img alt='inflight_dublin' src="https://www.inflightdublin.com/wp-content/uploads/2017/08/large_indicator_green.svg"/>
+<img alt='inflight_dublin' src="https://www.inflightdublin.com/wp-content/uploads/2017/08/small_fixed_reverse.svg"/>
 
 # Technical Assessment Inflight Dublin 
 The purpose of the given tasks is not only to gauge your technical ability, but to see how you  think through an engineering solution. We will talk through your results and your logic as part of  your technical interview. The tasks will not make or break your candidacy for the role but serve  as a single data-point among your other excellent qualifications.
