@@ -1,0 +1,38 @@
+[
+  {
+    "id": "357437875835",
+    "flightCode": "LH980",
+    "flightProvider": "Lufthansa",
+    "sourcePortName": "string",
+    "sourcePortCode": "string",
+    "destinationPortName": "string",
+    "destinationPortCode": "string",
+    "scheduledArrival": "Date",
+    "scheduledDeparture": "Date",
+    "status": "LANDED"
+  },
+  {
+    "id": "906524522143",
+    "flightCode": "LH980",
+    "flightProvider": "Lufthansa",
+    "sourcePortName": "string",
+    "sourcePortCode": "string",
+    "destinationPortName": "string",
+    "destinationPortCode": "string",
+    "scheduledArrival": "Date",
+    "scheduledDeparture": "Date",
+    "status": "ON SCHEDULE"
+  },
+  {
+    "id": "357437875835",
+    "flightCode": "LH980",
+    "flightProvider": "Lufthansa",
+    "sourcePortName": "string",
+    "sourcePortCode": "string",
+    "destinationPortName": "string",
+    "destinationPortCode": "string",
+    "scheduledArrival": "Date",
+    "scheduledDeparture": "Date",
+    "status": "DELAYED"
+  }
+]

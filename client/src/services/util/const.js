@@ -1,0 +1,4 @@
+export const DEFAULT_REQUEST_TIMEOUT = 8000;
+export const ERR_REQUEST_NETWORK_ERROR = 10004;
+
+export const FAILED_DELETE_USER = 10097;

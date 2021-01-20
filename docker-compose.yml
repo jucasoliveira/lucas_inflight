@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  client-app:
+    container_name: inflight_client
+    build: 
+        context: ./client
+        dockerfile: "Dockerfile"
+    volumes:
+      - './client/:/app/'
+      - /client/node_modules
+    ports:
+      - 3000:3000
+  server-app:
+    container_name: inflight_server
+    restart: always
+    build: 
+        context: ./server
+        dockerfile: "Dockerfile"
+    ports:
+      - '5000:5000'
+    volumes:
+      - './server/:/app/'
+      - /server/node_modules
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27017:27017'
