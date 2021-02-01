@@ -1,14 +1,13 @@
 import { Response } from 'supertest';
-import { IUser } from '@entities/User';
-
+import { IFlight } from '@entities/Flight';
 
 export interface IResponse extends Response {
-    body: {
-        users: IUser[];
-        error: string;
-    };
+  body: {
+    flight: IFlight[];
+    error: string;
+  };
 }
 
 export interface IReqBody {
-    user?: IUser;
+  flight?: IFlight;
 }
