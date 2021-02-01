@@ -50,8 +50,11 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 /************************************************************************************
  *                             Connect DB
  ***********************************************************************************/
-connectDB();
-checks();
+// Security
+if (process.env.NODE_ENV === 'production') {
+  connectDB();
+  checks();
+}
 
 // Export express instance
 export default app;

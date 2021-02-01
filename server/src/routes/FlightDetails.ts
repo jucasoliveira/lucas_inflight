@@ -3,9 +3,14 @@ import { Request, Response, Router } from 'express';
 
 import { paramMissingError, IRequest } from '@shared/constants';
 import FlightDao from '@daos/Flight/FlightDao';
+import FlightDaoMock from '@daos/Flight/FlightDao.mock';
 
 const router = Router();
 const flightDao = new FlightDao();
+const flightDaoMock = new FlightDaoMock();
+
+const requestDb = process.env.NODE_ENV === 'production' ? flightDao : flightDaoMock;
+
 const { BAD_REQUEST, CREATED, OK } = StatusCodes;
 
 /******************************************************************************
@@ -13,7 +18,7 @@ const { BAD_REQUEST, CREATED, OK } = StatusCodes;
  ******************************************************************************/
 
 router.get('/all', async (req: Request, res: Response) => {
-  const flights = await flightDao.getAll();
+  const flights = await requestDb.getAll();
   return res.status(OK).json({ flights });
 });
 
@@ -23,7 +28,7 @@ router.get('/all', async (req: Request, res: Response) => {
 
 router.get('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
-  const flight = await flightDao.getOne(id.toString());
+  const flight = await requestDb.getOne(id.toString());
   return res.status(OK).json({ flight });
 });
 
@@ -33,13 +38,12 @@ router.get('/:id', async (req: Request, res: Response) => {
 
 router.post('/add', async (req: IRequest, res: Response) => {
   const { flight } = req.body;
-  console.log('here');
   if (!flight) {
     return res.status(BAD_REQUEST).json({
       error: paramMissingError
     });
   }
-  await flightDao.add(flight);
+  await requestDb.add(flight);
   return res.status(CREATED).end();
 });
 
@@ -54,7 +58,7 @@ router.post('/update', async (req: IRequest, res: Response) => {
       error: paramMissingError
     });
   }
-  await flightDao.update(flight);
+  await requestDb.update(flight);
   return res.status(OK).end();
 });
 
@@ -64,7 +68,7 @@ router.post('/update', async (req: IRequest, res: Response) => {
 
 router.delete('/delete/:id', async (req: IRequest, res: Response) => {
   const { id } = req.params;
-  await flightDao.delete(id.toString());
+  await requestDb.delete(id.toString());
   return res.status(OK).end();
 });
 
